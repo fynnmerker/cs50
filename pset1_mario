@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int get_number(void);
+void pyramid(int);
+void hash(int);
+
+//prints pyramid with given number of layers
+int main(void)
+{
+    pyramid(get_number());
+}
+
+//gets user integer
+int get_number(void)
+{
+    int number;
+    do
+    {
+        number = get_int("How big shall it be?\n");
+    }        
+    while (number > 8 || number < 1);
+    return number;
+}
+
+//prints pyramid
+void pyramid(int n)
+{
+    for (int i = 0; i <= n; i++)
+    {
+        int space = 8 - i;
+        for (int p = 0; p < space; p++)
+        {
+            printf(" ");
+        }
+        hash(i);
+        printf("  ");
+        hash(i);
+        printf("\n");
+    }
+}
+
+//prints hashes
+void hash(int g)
+{
+    for (int r = 0; r < g; r++)
+    {
+        printf("#");
+    }
+}
